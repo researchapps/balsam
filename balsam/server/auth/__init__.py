@@ -13,7 +13,7 @@ LOGIN_ROUTERS: Dict[LoginMethod, APIRouter] = {
     LoginMethod.oauth_authcode: authorization_code_login.router,
     LoginMethod.oauth_device: device_code_login.router,
     LoginMethod.password: password_login.router,
-    LoginMethod.headless: headless_login.router,
+    LoginMethod.headless: password_login.router,
 }
 
 

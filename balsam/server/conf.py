@@ -14,7 +14,7 @@ class LoginMethod(str, Enum):
     oauth_authcode = "oauth_authcode"
     oauth_device = "oauth_device"
     password = "password"
-
+    headless = "headless"
 
 class OAuthProviderSettings(BaseSettings):
     class Config:
