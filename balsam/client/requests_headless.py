@@ -8,6 +8,7 @@ import dateutil.parser
 from . import urls
 from .requests_password import BasicAuthRequestsClient
 from .rest_base_client import AuthError
+from .requests_client import RequestsClient
 
 logger = logging.getLogger(__name__)
 
