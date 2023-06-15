@@ -32,6 +32,8 @@ class RequestsClient(RESTClient):
             cls = RequestsClient._client_classes["oauth_device"]
         elif "LoginMethod.password" in auth_methods:
             cls = RequestsClient._client_classes["password"]
+        elif "LoginMethod.headless" in auth_methods:
+            cls = RequestsClient._client_classes["headless"]
         else:
             raise NotImplementedError(f"This client does not support the server's auth methods: {auth_methods}")
 

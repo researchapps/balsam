@@ -52,14 +52,19 @@ def login(url: str, force: bool) -> None:
 @click.option("-u", "--username", prompt="Balsam username", help="Balsam username")
 def register(address: str, username: str) -> None:
     """
-    Register a new user account with Balsam server
+    Register a new user account with Balsam server.
+    
+    If a BALSAM_PASSWORD is set in the environment, we use it.
     """
     settings = ClientSettings(api_root=address)
     client = settings.build_client()
-    password = getpass.getpass("Password:")
-    conf_password = getpass.getpass("Confirm Password:")
-    if password != conf_password:
-        raise click.BadParameter("Passwords must match")
+    
+    password = os.environ.get('BALSAM_PASSWORD')
+    if not password:
+        password = getpass.getpass("Password:")
+        conf_password = getpass.getpass("Confirm Password:")
+        if password != conf_password:
+            raise click.BadParameter("Passwords must match")
 
     resp = client.post(urls.PASSWORD_REGISTER, username=username, password=password, authenticating=True)
     click.echo(f"Registration success! {resp}")
