@@ -1,6 +1,7 @@
 import getpass
 
 import click
+import os
 
 from balsam.client import NotAuthenticatedError, RequestsClient, urls
 from balsam.config import ClientSettings
