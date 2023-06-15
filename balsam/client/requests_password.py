@@ -51,7 +51,7 @@ class BasicAuthRequestsClient(RequestsClient):
         if self.username is None or self.password is None:
             raise ValueError("Cannot refresh_auth without username and password. Please provide these values.")
 
-    def _refresh_auth(self) -> None
+    def _refresh_auth(self) -> None:
         """
         Shared helper function to refresh_auth to login and get a token
         """
